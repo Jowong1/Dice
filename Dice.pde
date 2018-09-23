@@ -4,7 +4,7 @@ void setup()
 }
 void draw()
 {
-	//your code here
+	//my code here
 }
 void mousePressed()
 {
@@ -20,10 +20,10 @@ class Die //models one single dice cube
 	}
 	void roll()
 	{
-		//your code here
+		//my code here
 	}
 	void show()
 	{
-		//your code here
+		//my code here
 	}
 }
