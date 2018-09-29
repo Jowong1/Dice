@@ -73,6 +73,7 @@ void button(){
 }
 void mousePressed()
 {
+<<<<<<< HEAD
   if(mouseX > 98 && mouseX < 202 && mouseY < 567 && mouseY > 513){
     pressed = 10;
     if(released == 1){
@@ -109,6 +110,10 @@ void mouseReleased()
     }
     pressedLeft = false;
   }
+=======
+	redraw();
+
+>>>>>>> ce85e4342a652d8c7278cc410ed76c6c823fe0f1
 }
 
 class Target
