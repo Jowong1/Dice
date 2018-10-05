@@ -56,7 +56,7 @@ void firstDice(){
       //first.show();
       if(released == true){
         first.roll();
-        ellipse(100,100,50,50);
+        //ellipse(100,100,50,50);
       }
       first.show();
       //if(everyOther == true){
@@ -205,7 +205,7 @@ void mousePressed()
   
   if(mouseX > 248 && mouseX < 352 && mouseY < 567 && mouseY > 513){
     pressedMiddle = 10;
-    ellipse(50,50,50,50);
+    //ellipse(50,50,50,50);
     rekt = false;
     pressedMiddleClick = true;
     if(checkMiddleOn == true){
