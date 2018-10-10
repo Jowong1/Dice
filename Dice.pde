@@ -23,6 +23,8 @@ int randomo = (int)(Math.random()*6)+1;
 int checkpoint = 0;
 int checker = 0;
 int onOffSwitchLeft = 0;
+boolean checkNoLoop = true;
+int count = 0;
 //int randomc = (int)(Math.random()*6)+1;
 
 void setup()
@@ -102,7 +104,6 @@ void secondDice(){
 
 void draw()
 {
-  int randomc = (int)(Math.random()*6)+1;
   background(111, 226, 120);
   if(pressedMiddleClick == true && checkMiddleOn == true){
     secondRowOn = false;
@@ -172,14 +173,14 @@ void button(){
   
   //Right
   
-  fill(0);
-  ellipse(450, 555, 102.5, 50);
+  //fill(0);
+  //ellipse(450, 555, 102.5, 50);
   
-  fill(0,0,200);
-  ellipse(450, 550, 100, 50);
+  //fill(0,0,200);
+  //ellipse(450, 550, 100, 50);
   
-  fill(0,0,255);
-  ellipse(450, 540 + pressedRight, 100, 50);
+  //fill(0,0,255);
+  //ellipse(450, 540 + pressedRight, 100, 50);
   
   //spotLight(255, 0, 0, width/2, height/2, 400, 0, 0, -1, PI/4, 2);
   if(released == false && zeroAndOne == false){
@@ -192,8 +193,14 @@ void mousePressed()
   if(mouseX > 98 && mouseX < 202 && mouseY < 567 && mouseY > 513){
     pressedLeft = 10;
     checker = 1;
-    if(released == true){ //&& rekt == true
+    text("Total Dots: " + count, 400,500);
+    if(checkNoLoop == true){ //&& rekt == true
+      noLoop();
+      count = 0;
+      checkNoLoop = false;
+    }else{
       loop();
+      checkNoLoop = true;
     }
     pressedLeftClick = true;
     //if(checkLeftOn == true){
@@ -259,16 +266,37 @@ class DiceClass
   void generator(){
     if(numDots == 1){
       rollOne();
+      count = count + 1;
     }else if(numDots == 2){
       rollTwo();
+      count = count + 2;
     }else if(numDots == 3){
       rollThree();
+      count = count + 3;
     }else if(numDots == 4){
       rollFour();
+      count = count + 4;
     }else if(numDots == 5){
       rollFive();
+      count = count + 5;
     }else if(numDots == 6){
       rollSix();
+      count = count + 6;
+    }
+  }
+  void generatorSecondRow(){
+    if(numDots == 1){
+      rollOnex();
+    }else if(numDots == 2){
+      rollTwox();
+    }else if(numDots == 3){
+      rollThreex();
+    }else if(numDots == 4){
+      rollFourx();
+    }else if(numDots == 5){
+      rollFivex();
+    }else if(numDots == 6){
+      rollSixx();
     }
   }
  void show()
@@ -283,6 +311,7 @@ class DiceClass
         //}
       }else{
         secondRow();
+        generatorSecondRow();
       }
       //fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
   }
@@ -380,16 +409,22 @@ class DiceClass
       int randomizer = (int)(Math.random()*6)+1;
       if(randomizer == 1){
         rollOnex();
+        count = count + 1;
       }else if(randomizer == 2){
         rollTwox();
+        count = count + 2;
       }else if(randomizer == 3){
         rollThreex();
+        count = count + 3;
       }else if(randomizer == 4){
         rollFourx();
+        count = count + 4;
       }else if(randomizer == 5){
         rollFivex();
+        count = count + 5;
       }else if(randomizer == 6){
         rollSixx();
+        count = count + 6;
       }
     }
   /////
